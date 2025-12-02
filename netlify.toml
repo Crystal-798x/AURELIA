@@ -1,0 +1,19 @@
+[build]
+  # Base directory for the project
+  base = "."
+  
+  # Build command
+  command = "npm run build"
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "dist"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (optional - add if needed)
+# [build.environment]
+#   NODE_VERSION = "18"
