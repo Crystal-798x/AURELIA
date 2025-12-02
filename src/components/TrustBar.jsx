@@ -10,7 +10,7 @@ const TrustBar = () => {
     ];
 
     return (
-        <section className="w-full py-12 bg-white border-b border-gold/10">
+        <section className="w-full py-8 md:py-12 bg-white border-b border-gold/10">
             <div className="max-w-[1440px] mx-auto px-8 mb-8 flex justify-center">
                 <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
@@ -34,24 +34,28 @@ const TrustBar = () => {
 
             <Swiper
                 modules={[Autoplay]}
-                spaceBetween={50}
-                slidesPerView={3}
+                spaceBetween={40}
+                slidesPerView={2}
                 loop={true}
-                speed={3000}
+                speed={5000}
                 autoplay={{
                     delay: 0,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
                 }}
+                freeMode={true}
+                freeModeMomentum={false}
                 breakpoints={{
-                    640: { slidesPerView: 4 },
-                    768: { slidesPerView: 5 },
-                    1024: { slidesPerView: 6 },
+                    640: { slidesPerView: 3, spaceBetween: 35 },
+                    768: { slidesPerView: 5, spaceBetween: 30 },
+                    1024: { slidesPerView: 6, spaceBetween: 30 },
                 }}
-                className="w-full opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full opacity-60 transition-all duration-500"
+                style={{ willChange: 'transform' }}
             >
                 {brands.map((brand, index) => (
-                    <SwiperSlide key={index} className="flex justify-center items-center">
-                        <span className="font-serif text-2xl md:text-3xl text-midnight/80 hover:text-gold transition-colors duration-300 cursor-default">
+                    <SwiperSlide key={index} className="flex justify-center items-center !w-auto">
+                        <span className="font-serif text-lg md:text-2xl lg:text-3xl text-midnight/80 hover:text-gold transition-colors duration-300 cursor-default whitespace-nowrap px-4 inline-block">
                             {brand}
                         </span>
                     </SwiperSlide>

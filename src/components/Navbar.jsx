@@ -103,7 +103,7 @@ const Navbar = () => {
                     <button className="hidden lg:block px-6 py-2 border border-gold/50 text-gold hover:bg-gold hover:text-white transition-all duration-300 rounded-full text-sm font-medium">
                         Login
                     </button>
-                    <button className="px-4 md:px-6 py-2 bg-gold text-white hover:bg-gold-dark transition-all duration-300 rounded-full text-sm font-medium shadow-glow">
+                    <button className="hidden lg:block px-6 py-2 bg-gold text-white hover:bg-gold-dark transition-all duration-300 rounded-full text-sm font-medium shadow-glow">
                         Signup
                     </button>
                 </div>
@@ -140,6 +140,14 @@ const Navbar = () => {
                                 className="w-full px-6 py-3 border border-gold/50 text-gold hover:bg-gold hover:text-white transition-all duration-300 rounded-full text-sm font-medium mt-8"
                             >
                                 Login
+                            </motion.button>
+                            <motion.button
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: (links.length + 1) * 0.1 }}
+                                className="w-full px-6 py-3 bg-gold text-white hover:bg-gold-dark transition-all duration-300 rounded-full text-sm font-medium shadow-glow"
+                            >
+                                Signup
                             </motion.button>
                         </div>
                     </motion.div>

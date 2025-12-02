@@ -26,7 +26,7 @@ const BeforeAfter = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[500px] md:h-[600px] rounded-3xl overflow-hidden cursor-ew-resize select-none"
+            className="relative w-full h-[400px] md:h-[600px] rounded-3xl overflow-hidden cursor-ew-resize select-none"
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
         >
