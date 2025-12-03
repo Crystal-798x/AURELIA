@@ -59,10 +59,53 @@ const Bottle = (props) => {
                         clearcoat={1}
                         clearcoatRoughness={0.1}
                         envMapIntensity={1.5}
-                        normalMap={normalMap}
-                        normalScale={new THREE.Vector2(0.3, 0.3)}
                     />
                 </RoundedBox>
+
+                {/* Modern Geometric Structure - Vertical Ridges */}
+                {[...Array(12)].map((_, i) => {
+                    const angle = (i / 12) * Math.PI * 2;
+                    const x = Math.sin(angle) * 0.92;
+                    const z = Math.cos(angle) * 0.62;
+                    return (
+                        <mesh
+                            key={i}
+                            position={[x, 0, z]}
+                            rotation={[0, angle, 0]}
+                        >
+                            <boxGeometry args={[0.015, 3.0, 0.05]} />
+                            <meshStandardMaterial
+                                color="#c07a15"
+                                roughness={0.3}
+                                metalness={0.2}
+                                transparent
+                                opacity={0.8}
+                            />
+                        </mesh>
+                    );
+                })}
+
+                {/* Embossed Brand Name */}
+                <mesh position={[0, 0.3, 0.61]} rotation={[0, 0, 0]}>
+                    <boxGeometry args={[0.8, 0.15, 0.02]} />
+                    <meshStandardMaterial
+                        color="#ffffff"
+                        roughness={0.2}
+                        metalness={0.8}
+                        emissive="#d4af37"
+                        emissiveIntensity={0.2}
+                    />
+                </mesh>
+                <mesh position={[0, 0, 0.61]} rotation={[0, 0, 0]}>
+                    <boxGeometry args={[0.8, 0.15, 0.02]} />
+                    <meshStandardMaterial
+                        color="#ffffff"
+                        roughness={0.2}
+                        metalness={0.8}
+                        emissive="#d4af37"
+                        emissiveIntensity={0.2}
+                    />
+                </mesh>
 
                 {/* INTERNAL LIQUID - Rounded Rectangle (slightly smaller) */}
                 <RoundedBox
@@ -91,8 +134,6 @@ const Bottle = (props) => {
                         clearcoat={1}
                         clearcoatRoughness={0.1}
                         envMapIntensity={1.5}
-                        normalMap={normalMap}
-                        normalScale={new THREE.Vector2(0.3, 0.3)}
                     />
                 </mesh>
 
@@ -113,8 +154,6 @@ const Bottle = (props) => {
                         color="#1a1a1a"
                         roughness={0.2}
                         metalness={0.9}
-                        normalMap={normalMap}
-                        normalScale={new THREE.Vector2(0.8, 0.8)}
                         envMapIntensity={1.5}
                     />
                 </mesh>
@@ -126,8 +165,6 @@ const Bottle = (props) => {
                         color="#1a1a1a"
                         roughness={0.2}
                         metalness={0.9}
-                        normalMap={normalMap}
-                        normalScale={new THREE.Vector2(0.8, 0.8)}
                         envMapIntensity={1.5}
                     />
                 </mesh>

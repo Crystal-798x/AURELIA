@@ -21,7 +21,7 @@ const Hero = () => {
                     <h2 className="text-gold font-sans tracking-[0.2em] text-sm mb-4 uppercase">
                         Ultra-Premium Skincare
                     </h2>
-                    <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-midnight leading-tight mb-6 relative">
+                    <h1 className="font-serif text-5xl md:text-7xl lg:text-6xl xl:text-8xl text-midnight leading-tight mb-6 relative">
                         AURÉLIA <br />
                         <span className="relative inline-block">
                             <span className="absolute inset-0 bg-gradient-to-r from-midnight via-purple-900 to-midnight blur-sm opacity-40 -z-10 px-4 py-1"></span>
@@ -34,7 +34,7 @@ const Hero = () => {
                         initial={{ opacity: 0, filter: 'blur(10px)' }}
                         animate={{ opacity: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="font-sans text-midnight/70 text-lg md:text-xl max-w-md mb-10 leading-relaxed"
+                        className="font-sans text-midnight/70 text-lg md:text-xl lg:text-base xl:text-xl max-w-md mb-10 leading-relaxed"
                     >
                         Where Science Meets Pure Skin Radiance. Experience the epitome of luxury and dermatological excellence.
                     </motion.p>
@@ -59,9 +59,35 @@ const Hero = () => {
             </div>
 
             {/* Right 3D Scene - Desktop Only */}
-            <div className="hidden lg:block lg:relative lg:w-[55%] h-full z-0">
+            <div className="hidden lg:block lg:relative lg:w-[55%] h-full z-0 ipad-pro-3d">
                 <ThreeScene />
             </div>
+
+            {/* iPad Pro Specific Styles */}
+            <style jsx>{`
+                /* iPad Pro 11" (834x1194 portrait, 1194x834 landscape) */
+                @media only screen 
+                    and (min-width: 834px) 
+                    and (max-width: 1194px) {
+                    
+                    :global(.ipad-pro-3d) {
+                        transform: scale(0.5);
+                        transform-origin: center;
+                    }
+                }
+
+                /* iPad Pro 12.9" (1024x1366 portrait, 1366x1024 landscape) */
+                @media only screen 
+                    and (min-width: 1024px) 
+                    and (max-width: 1366px) 
+                    and (max-height: 1366px) {
+                    
+                    :global(.ipad-pro-3d) {
+                        transform: scale(0.25);
+                        transform-origin: center;
+                    }
+                }
+            `}</style>
         </section>
     );
 };
