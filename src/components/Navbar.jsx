@@ -2,13 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../context/CartContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
     const navRef = useRef(null);
-    const logoRef = useRef(null);
+    const { cartCount, setIsCartOpen } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
 
     useEffect(() => {
         const nav = navRef.current;
@@ -99,8 +102,23 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Buttons */}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 lg:space-x-6">
+                    <button
+                        onClick={() => setIsCartOpen(true)}
+                        className="relative p-2 text-midnight hover:text-gold transition-colors"
+                        aria-label="View Cart"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        {cartCount > 0 && (
+                            <span className="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                                {cartCount}
+                            </span>
+                        )}
+                    </button>
                     <button className="hidden lg:block px-6 py-2 border border-gold/50 text-gold hover:bg-gold hover:text-white transition-all duration-300 rounded-full text-sm font-medium">
+
                         Login
                     </button>
                     <button className="hidden lg:block px-6 py-2 bg-gold text-white hover:bg-gold-dark transition-all duration-300 rounded-full text-sm font-medium shadow-glow">
@@ -117,7 +135,7 @@ const Navbar = () => {
                         animate={{ x: 0 }}
                         exit={{ x: '-100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed top-0 left-0 w-4/5 max-w-sm h-screen bg-white/95 backdrop-blur-2xl z-40 shadow-2xl lg:hidden"
+                        className="fixed top-0 left-0 w-4/5 max-w-sm h-screen bg-white/95 backdrop-blur-2xl z-[60] shadow-2xl lg:hidden"
                     >
                         <div className="flex flex-col pt-24 px-8 space-y-6">
                             {links.map((link, index) => (

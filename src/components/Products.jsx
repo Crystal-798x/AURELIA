@@ -10,8 +10,12 @@ import serumImg from '../assets/product-serum.png';
 import creamImg from '../assets/product-cream.png';
 import essenceImg from '../assets/product-essence.png';
 
+import { useCart } from '../context/CartContext';
+
 const Products = () => {
+    const { addToCart } = useCart();
     const products = [
+
         {
             id: 1,
             name: 'Luminous Gold Serum',
@@ -148,6 +152,7 @@ const Products = () => {
                         }}
                         speed={1000}
                         loop={true}
+                        spaceBetween={30}
                         className="w-full py-10"
                         breakpoints={{
                             320: { slidesPerView: 1 },
@@ -196,7 +201,10 @@ const Products = () => {
                                             <span className="font-serif text-2xl text-midnight font-medium">
                                                 {product.price}
                                             </span>
-                                            <button className="w-full py-3 bg-midnight text-white rounded-full text-sm font-medium hover:bg-gold transition-all duration-300 shadow-lg hover:shadow-gold/30 uppercase tracking-wider">
+                                            <button
+                                                onClick={() => addToCart(product)}
+                                                className="w-full py-3 bg-midnight text-white rounded-full text-sm font-medium hover:bg-gold transition-all duration-300 shadow-lg hover:shadow-gold/30 uppercase tracking-wider"
+                                            >
                                                 Add to Cart
                                             </button>
                                         </div>

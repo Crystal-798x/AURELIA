@@ -21,7 +21,7 @@ const AboutUs = () => {
 
                     {/* Card Content */}
                     <div className="relative bg-white/30 backdrop-blur-xl rounded-3xl border border-white/40 shadow-soft" style={{ padding: 'clamp(2rem, 5vw, 5rem)' }}>
-                        <h2 className="text-center font-serif text-4xl md:text-5xl text-midnight mb-12">
+                        <h2 className="text-center font-serif text-3xl md:text-5xl text-midnight mb-12">
                             The Art of <span className="italic text-gold">Luminescence</span>
                         </h2>
 

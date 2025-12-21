@@ -103,7 +103,7 @@ const TrustBar = () => {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-midnight mb-3"
+                        className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-midnight mb-3"
                     >
                         {averageRating} out of 5
                     </motion.h2>
@@ -255,27 +255,7 @@ const TrustBar = () => {
                 </motion.div>
             </div>
 
-            {/* Custom Swiper Pagination Styles */}
-            <style jsx>{`
-                :global(.swiper-pagination) {
-                    bottom: 0 !important;
-                }
-                :global(.swiper-pagination-bullet) {
-                    background: #D4AF37;
-                    opacity: 0.3;
-                    width: 12px;
-                    height: 12px;
-                    margin: 0 6px !important;
-                    transition: all 0.3s ease;
-                }
-                :global(.swiper-pagination-bullet-active) {
-                    opacity: 1;
-                    width: 32px;
-                    border-radius: 6px;
-                    background: linear-gradient(90deg, #B39024, #D4AF37, #E5C558);
-                }
-            `}</style>
-        </section>
+        </section >
     );
 };
 

@@ -8,7 +8,13 @@
   body {
     @apply font-sans text-midnight antialiased overflow-x-hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif;
   }
 }
@@ -17,11 +23,11 @@
   .glass {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
-  
+
   .glass-dark {
     @apply bg-black/20 backdrop-blur-md border border-white/10;
   }
-  
+
   .text-gradient-gold {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-dark via-gold to-gold-light;
   }
@@ -46,12 +52,77 @@ html.has-scroll-dragging {
 
 /* Custom Animations */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
+}
+
+/* iPad Pro Specific Styles for 3D Scene */
+/* iPad Pro 11" (834x1194 portrait, 1194x834 landscape) */
+@media only screen and (min-width: 834px) and (max-width: 1194px) {
+
+  .ipad-pro-3d {
+    transform: scale(0.65) !important;
+    transform-origin: center right !important;
+    right: -10% !important;
+  }
+}
+
+/* iPad Pro 12.9" (1024x1366 portrait, 1366x1024 landscape) */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+
+  .ipad-pro-3d {
+    transform: scale(0.75) !important;
+    transform-origin: center right !important;
+    right: -5% !important;
+  }
+}
+
+/* Custom Swiper Pagination Styles */
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #D4AF37 !important;
+  opacity: 0.3 !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 6px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 32px !important;
+  border-radius: 6px !important;
+  background: linear-gradient(90deg, #B39024, #D4AF37, #E5C558) !important;
+}
+
+/* Custom Cart Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
 }

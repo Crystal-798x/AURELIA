@@ -59,35 +59,10 @@ const Hero = () => {
             </div>
 
             {/* Right 3D Scene - Desktop Only */}
-            <div className="hidden lg:block lg:relative lg:w-[55%] h-full z-0 ipad-pro-3d">
+            <div className="hidden lg:block lg:relative lg:w-[55%] h-full z-0 ipad-pro-3d perspective-1000">
                 <ThreeScene />
             </div>
 
-            {/* iPad Pro Specific Styles */}
-            <style jsx>{`
-                /* iPad Pro 11" (834x1194 portrait, 1194x834 landscape) */
-                @media only screen 
-                    and (min-width: 834px) 
-                    and (max-width: 1194px) {
-                    
-                    :global(.ipad-pro-3d) {
-                        transform: scale(0.5);
-                        transform-origin: center;
-                    }
-                }
-
-                /* iPad Pro 12.9" (1024x1366 portrait, 1366x1024 landscape) */
-                @media only screen 
-                    and (min-width: 1024px) 
-                    and (max-width: 1366px) 
-                    and (max-height: 1366px) {
-                    
-                    :global(.ipad-pro-3d) {
-                        transform: scale(0.25);
-                        transform-origin: center;
-                    }
-                }
-            `}</style>
         </section>
     );
 };

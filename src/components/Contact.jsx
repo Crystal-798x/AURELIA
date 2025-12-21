@@ -47,12 +47,12 @@ const Contact = () => {
 
                     {/* Right Content */}
                     <div className="w-full md:w-1/2 flex flex-col justify-center">
-                        <h3 className="font-serif text-5xl md:text-6xl text-midnight mb-8 leading-tight">
+                        <h3 className="font-serif text-4xl md:text-6xl text-midnight mb-8 leading-tight">
                             Beauty is a <br />
                             <span className="italic text-white">Conversation.</span>
                         </h3>
 
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {['Instagram', 'TikTok', 'Pinterest', 'YouTube'].map((social, index) => (
                                 <motion.a
                                     key={social}

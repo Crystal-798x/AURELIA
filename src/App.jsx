@@ -10,6 +10,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import useScrollTheme from './hooks/useScrollTheme';
 
+import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart';
+
 function App() {
   const scrollRef = useRef(null);
 
@@ -26,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <CartProvider>
       <Navbar />
       <div ref={scrollRef} className="bg-cream min-h-screen transition-colors duration-1000">
         <main>
@@ -40,8 +43,10 @@ function App() {
         </main>
         <Footer />
       </div>
-    </>
+      <Cart />
+    </CartProvider>
   );
 }
+
 
 export default App;
